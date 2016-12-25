@@ -105,4 +105,5 @@ def main():
     display_content(content)
 
 if __name__ == "__main__":
+    # python everknown.py --host app.yinxiang.com --token "S=s51:U=abc2b9:E=1608719cd46:C=1592f68a018:P=1cd:A=en-devtoken:V=2:H=3c70ebbd4f60ba301e00b23ad92dab4d" --words "练习"
     main()
