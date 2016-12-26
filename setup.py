@@ -15,7 +15,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'everknown = everknown.everknown:main',
+            'everknown= everknown.everknown:main',
         ],
     },
     install_requires=[
