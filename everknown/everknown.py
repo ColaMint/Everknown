@@ -1,9 +1,13 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 from evernote.api.client import EvernoteClient
 from evernote.edam.notestore.ttypes import NoteFilter, NotesMetadataResultSpec
-from lxml import html
+from html2text import html2text
 import subprocess
 import argparse
 
@@ -27,56 +31,27 @@ class EverKnown(object):
         return note
 
 def choose_note(note_list):
-    print "please enter the number of the note to display:"
+    print "please enter the number of the note to display"
     i = 1
     for note in note_list:
-        print "%d) %s" % (i, note.title)
+        print "%d) 《%s》" % (i, note.title)
         i += 1
     n = input(":")
-    print n
     if type(n) == int and n >= 1 and n <= len(note_list):
         return note_list[n-1]
 
     return None
 
-def plain_note_content(note_content):
-    content = [""]
-    root = html.fromstring(note_content)
-    def parse_node(node):
-        br = False
-        printed = False
-
-        if node.tag == "br":
-            content[0] += "\n"
-            br = True
-            printed = True
-        elif node.text:
-            content[0] += node.text
-            printed = True
-
-        for child in node:
-            last_br, last_printed =  parse_node(child)
-
-            if last_br:
-                br = True
-
-            if last_printed:
-                printed = True
-
-        if node.tag == "div" and not br and printed:
-            content[0] += "\n"
-
-        return br, printed
-
-    parse_node(root)
-
-    return content[0]
-
-def display_content(content):
-    if type(content) == unicode:
-        content = content.encode("utf-8")
+def display_note(note):
+    title = note.title.encode("utf-8") \
+            if type(note.title) == unicode \
+            else note.title
+    html = note.content.encode("utf-8") \
+            if type(note.content) == unicode \
+            else note.content
+    plain_text = "《%s》\n\n%s" % (title, html2text(html))
     process=subprocess.Popen(['less'], stdin=subprocess.PIPE)
-    process.communicate(input=content)
+    process.communicate(input=plain_text)
 
 def main():
     parser = argparse.ArgumentParser(description="EverKnown")
@@ -84,7 +59,7 @@ def main():
         "--host",
         required=True,
         dest="host",
-        help="service host")
+        help="service host. EverNote: www.evernote.com, 印象笔记: app.yinxiang.com")
     parser.add_argument(
         "--token",
         required=True,
@@ -94,15 +69,20 @@ def main():
         "--words",
         required=True,
         dest="words",
-        help="words to search")
+        help="words to search. For more search grammer, please see https://dev.evernote.com/doc/articles/search_grammar.php")
     args = parser.parse_args()
 
-    everknown = EverKnown(args.host, args.token)
-    note_list = everknown.search_notes(args.words)
-    note_metadata = choose_note(note_list.notes)
-    note = everknown.get_note(note_metadata.guid)
-    content = plain_note_content(note.content)
-    display_content(content)
+    try:
+        everknown = EverKnown(args.host, args.token)
+        note_list = everknown.search_notes(args.words)
+        note_metadata = choose_note(note_list.notes)
+        note = everknown.get_note(note_metadata.guid)
+        display_note(note)
+    except KeyboardInterrupt as e:
+		pass
+    except Exception as e:
+        print e
+
 
 if __name__ == "__main__":
     # python everknown.py --host app.yinxiang.com --token "S=s51:U=abc2b9:E=1608719cd46:C=1592f68a018:P=1cd:A=en-devtoken:V=2:H=3c70ebbd4f60ba301e00b23ad92dab4d" --words "练习"
