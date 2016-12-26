@@ -41,7 +41,7 @@ please enter the number of the note to display
 ...
 
 # alias everknown for convenience
-alias everknown='everknown --host {service host} --token {developer token} --words '
+alias everknown='everknown --host "{service host}" --token "{developer token}" --words '
 
 everknown "Hello World"
 ```
