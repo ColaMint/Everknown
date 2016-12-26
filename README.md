@@ -1,17 +1,17 @@
-# EverKnown
+# Everknown
 
-EverKnown is a command line tool which helps you search your `EverNote/印象笔记` and display notes in plain text.
+Everknown is a command line tool which helps you search your `Evernote/印象笔记` and display notes in plain text.
 
 # Install
 
 ```bash
 pip install git+https://github.com/evernote/evernote-sdk-python.git
-pip install git+https://github.com/Everley1993/EverKnown.git
+pip install git+https://github.com/Everley1993/Everknown.git
 ```
 
 # Apply for Developer Token
 
-EverNote: [https://www.evernote.com/api/DeveloperToken.action](https://www.evernote.com/api/DeveloperToken.action)
+Evernote: [https://www.evernote.com/api/DeveloperToken.action](https://www.evernote.com/api/DeveloperToken.action)
 
 印象笔记: [https://app.yinxiang.com/api/DeveloperToken.action](https://app.yinxiang.com/api/DeveloperToken.action)
 
@@ -22,7 +22,7 @@ everknown -h
 
 optional arguments:
   -h, --help     show this help message and exit
-  --host HOST    service host. EverNote: www.evernote.com, 印象笔记:
+  --host HOST    service host. Evernote: www.evernote.com, 印象笔记:
                  app.yinxiang.com
   --token TOKEN  developer token
   --words WORDS  words to search. For more search grammer, please see
