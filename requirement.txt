@@ -1,0 +1,2 @@
+git+https://github.com/evernote/evernote-sdk-python.git
+lxml
