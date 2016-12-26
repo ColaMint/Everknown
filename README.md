@@ -5,6 +5,7 @@ EverKnown is a command line tool which helps you search your `EverNote/印象笔
 # Install
 
 ```bash
+pip install git+https://github.com/evernote/evernote-sdk-python.git
 pip install git+https://github.com/Everley1993/EverKnown.git
 ```
 

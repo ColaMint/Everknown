@@ -21,8 +21,5 @@ setup(
     install_requires=[
         'html2text',
     ],
-    dependency_links=[
-        'https://github.com/evernote/evernote-sdk-python#egg=evernote-1.25.0',
-    ],
     include_package_data=True,
 )
