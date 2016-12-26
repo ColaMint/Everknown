@@ -75,6 +75,9 @@ def main():
     try:
         everknown = EverKnown(args.host, args.token)
         note_list = everknown.search_notes(args.words)
+        if not note_list.notes:
+            print "No note matches."
+            return
         note_metadata = choose_note(note_list.notes)
         if note_metadata is None:
             return
