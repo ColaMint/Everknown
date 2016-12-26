@@ -76,6 +76,8 @@ def main():
         everknown = EverKnown(args.host, args.token)
         note_list = everknown.search_notes(args.words)
         note_metadata = choose_note(note_list.notes)
+        if note_metadata is None:
+            return
         note = everknown.get_note(note_metadata.guid)
         display_note(note)
     except KeyboardInterrupt as e:
