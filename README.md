@@ -1,24 +1,20 @@
 # EverKnown
--------------
 
 EverKnown is a command line tool which helps you search your `EverNote` and display notes in plain text.
 
 # Install
--------------
 
 ```bash
 pip install git+https://github.com/Everley1993/EverKnown.git
 ```
 
 # Apply for EverNote Developer Token
--------------
 
 EverNote: [https://www.evernote.com/api/DeveloperToken.action](https://www.evernote.com/api/DeveloperToken.action)
 
 印象笔记: [https://app.yinxiang.com/api/DeveloperToken.action](https://app.yinxiang.com/api/DeveloperToken.action)
 
 # Usage
--------------
 
 ```bash
 everknown -h
