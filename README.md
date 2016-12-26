@@ -1,6 +1,6 @@
 # EverKnown
 
-EverKnown is a command line tool which helps you search your `EverNote` and display notes in plain text.
+EverKnown is a command line tool which helps you search your `EverNote/印象笔记` and display notes in plain text.
 
 # Install
 
@@ -8,7 +8,7 @@ EverKnown is a command line tool which helps you search your `EverNote` and disp
 pip install git+https://github.com/Everley1993/EverKnown.git
 ```
 
-# Apply for EverNote Developer Token
+# Apply for Developer Token
 
 EverNote: [https://www.evernote.com/api/DeveloperToken.action](https://www.evernote.com/api/DeveloperToken.action)
 
