@@ -38,12 +38,7 @@ please enter the number of the note to display
 
 《Python Hello World!》
 ...
-```
 
-# Alias
-
-
-```bash
 # alias everknown for convenience
 alias everknown='everknown --host {service host} --token {developer token} --words '
 
