@@ -20,6 +20,7 @@ setup(
     },
     install_requires=[
         'html2text',
+        'oauth2',
     ],
     include_package_data=True,
 )
