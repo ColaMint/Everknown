@@ -43,5 +43,5 @@ please enter the number of the note to display
 # alias everknown for convenience
 alias ek='everknown --host "{service host}" --token "{developer token}" --words '
 
-everknown "Hello World"
+ek "Hello World"
 ```
